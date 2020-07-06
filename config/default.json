@@ -1,0 +1,3 @@
+{
+    "mongoAtlas" : "mongodb+srv://root:toor@cluster0.og4h5.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}

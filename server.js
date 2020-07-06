@@ -1,7 +1,8 @@
 const express = require("express");
 
 const app = express();
-
+const mongoConnect = require("./config/mongo");
+mongoConnect();
 app.get("/", (req, res) => {
   res.send("API running");
 });
