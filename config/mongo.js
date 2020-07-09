@@ -10,6 +10,7 @@ const mongoConnect = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
+      useFindAndModify: false,
     });
 
     console.log("connection with database successfully established ");

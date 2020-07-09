@@ -54,11 +54,14 @@ router.post(
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
             newUser.password = hash;
+            payload = {
+              id: newUser.id,
+            };
             newUser.save().then(
               (user) => {
                 //creating token expires in 1 hour
                 jwt.sign(
-                  { id: newUser.id },
+                  payload,
                   config.get("jwtSecretKey"),
                   {
                     expiresIn: 60 * 60,
