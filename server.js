@@ -16,7 +16,7 @@ const multer = require("multer");
 
 //Using logger to show requests
 const logger = require("morgan");
-app.use(logger("dev"));
+//app.use(logger("dev"));
 
 //Connecting to DB
 const mongoConnect = require("./config/mongo");

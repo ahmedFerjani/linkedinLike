@@ -1,4 +1,7 @@
 {
     "mongoAtlas": "mongodb+srv://root:toor@cluster0.og4h5.mongodb.net/projectDB?retryWrites=true&w=majority",
-    "jwtSecretKey": "ahmedFerjani"
+    "jwtSecretKey": "ahmedFerjani",
+    "githubclientid": "e096750423ce82f74da2",
+    "githubclientsecret": "fa6602c26033af2dacb0914f6bace60ca57f398d"
+
 }
