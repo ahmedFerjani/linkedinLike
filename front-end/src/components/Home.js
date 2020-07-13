@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Login from "./Login";
+import Register from "./Register";
 import $ from "jquery";
 
 export default function Home() {
@@ -57,31 +59,13 @@ export default function Home() {
                     {/* REGISTER */}
                     <div className="content">
                       <div id="register">
-                        <form>
-                          <input type="text" placeholder="Full Name" />
-                          <input type="email" placeholder="Email Address" />
-                          <input type="text" placeholder="Phone" />
-                          <input type="password" placeholder="Password" />
-                          <button type="submit">Register</button>
-                        </form>
+                        <Register />
                       </div>
                       {/* LOGIN */}
                       <div id="log-in" className="active">
-                        <form>
-                          <input type="email" placeholder="Email Address" />
-                          <input type="password" placeholder="Password" />
-                          <button type="submit">Login</button>
-                          <div className="forget">
-                            Forgot your password? <a href="#.">Click Here</a>
-                          </div>
-                        </form>
+                        <Login />
                       </div>
-                      <div id="forget">
-                        <form>
-                          <input type="email" placeholder="Email Address" />
-                          <button type="submit">Login</button>
-                        </form>
-                      </div>
+
                     </div>
                   </div>
                 </div>

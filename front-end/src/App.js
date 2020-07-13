@@ -6,19 +6,27 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MobileNav from "./components/MobileNav";
 import NotFound from "./components/NotFound";
+
+//Redux
+import { Provider } from "react-redux";
+import store from './store'
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <div id="main-wrapper">
-          <Header />
-          <Route exact path='/' component={Home} />
-          <Route exact path='/**' component={NotFound} />
-          <Footer />
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <div id="main-wrapper">
+            <Header />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="*" component={NotFound} />
+            </Switch>
+            <Footer />
+          </div>
+          <MobileNav />
         </div>
-        <MobileNav />
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   );
 }
 
