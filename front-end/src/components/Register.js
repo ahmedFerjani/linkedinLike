@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-export default function Register() {
+import { connect } from "react-redux";
+import { setAlert } from "../actions/alert";
+import { register } from "../actions/auth";
+import PropTypes from "prop-types";
+const Register = (props) => {
   const [registerData, setRegisterData] = useState({
     name: "",
     email: "",
@@ -10,7 +13,6 @@ export default function Register() {
   });
 
   const onChange = (e) => {
-    console.log("hi");
     setRegisterData({
       ...registerData,
       [e.target.name]: e.target.value,
@@ -21,22 +23,28 @@ export default function Register() {
     e.preventDefault();
     if (registerData.password !== registerData.rpassword) {
       console.log("password does not match");
+      props.setAlert("password does not match", "danger");
     } else {
-      console.log(registerData);
-      const newUser = {
+      //console.log(registerData);
+      // const newUser = {
+      //   name: registerData.name,
+      //   email: registerData.email,
+      //   password: registerData.password,
+      // };
+
+      // axios
+      //   .post("http://localhost:5000/api/users", newUser)
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err.request.response);
+      //   });
+      props.register({
         name: registerData.name,
         email: registerData.email,
         password: registerData.password,
-      };
-
-      axios
-        .post("http://localhost:5000/api/users", newUser)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err.request.response);
-        });
+      });
     }
   };
   return (
@@ -72,4 +80,11 @@ export default function Register() {
       <button type="submit">Register</button>
     </form>
   );
-}
+};
+
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert, register })(Register);

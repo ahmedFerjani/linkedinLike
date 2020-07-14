@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MobileNav from "./components/MobileNav";
 import NotFound from "./components/NotFound";
-
+import Alert from './components/Alert'
 //Redux
 import { Provider } from "react-redux";
 import store from './store'
@@ -17,6 +17,7 @@ function App() {
         <div className="App">
           <div id="main-wrapper">
             <Header />
+            <Alert />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="*" component={NotFound} />
